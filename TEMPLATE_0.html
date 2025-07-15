@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Фото в модальном окне</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      position: relative;
+    }
+    .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Тут спрятанаkurwa</h2>
+  <button onclick="openModal()">Показать</button>
+
+  <div id="photoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img src="арина.jpg" alt="Фото">
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("photoModal").style.display = "block";
+    }
+    function closeModal() {
+      document.getElementById("photoModal").style.display = "none";
+    }
+
+    // Дополнительно: закрытие модалки при клике вне окна
+    window.onclick = function(event) {
+      const modal = document.getElementById("photoModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
